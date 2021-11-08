@@ -2,14 +2,18 @@
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
     public class MainActivity extends AppCompatActivity {
 
-    ImageView iv;
-    ToggleButton tg;
+        public final void setColorFilter (int color, PorterDuff.Mode mode)
+
+        ImageView iv;
+        ToggleButton tg;
 
 
     @Override
@@ -19,6 +23,19 @@ import android.widget.ToggleButton;
 
 
 
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton)
+                toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            iv.setColorFilter(getResources().getColor(R.color.black));
+                        }else{
+                            iv.setColorFilter(null);
+                        }
+                    }
+                });
+        
 
 
         /*
